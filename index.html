@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Happy Anniversary Fahimah 🌹</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #fff5f7;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+#scene {
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+#gift-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.gift-hover-wrap { transition: transform 0.2s ease; }
+#gift-stage:active .gift-hover-wrap { transform: translateY(2px); }
+
+.tap-hint {
+  margin-top: 18px;
+  font-size: 15px;
+  color: #993556;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  animation: blink 1.8s ease-in-out infinite;
+  font-family: Georgia, serif;
+}
+@keyframes blink { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+#card-reveal {
+  display: none;
+  opacity: 0;
+  max-width: 480px;
+  width: 100%;
+  animation: cardIn 0.75s cubic-bezier(0.34,1.3,0.64,1) forwards;
+}
+@keyframes cardIn {
+  from { opacity:0; transform: scale(0.65) translateY(50px); }
+  to   { opacity:1; transform: scale(1) translateY(0); }
+}
+
+.card-outer {
+  border-radius: 22px;
+  padding: 3px;
+  background: linear-gradient(145deg, #F4C0D1, #FAC775, #ED93B1);
+}
+.card-inner {
+  background: #fffaf8;
+  border-radius: 20px;
+  padding: 38px 28px 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.card-inner::before {
+  content:''; position:absolute; top:-60px; right:-60px;
+  width:180px; height:180px; border-radius:50%;
+  background:#FBEAF0; opacity:0.5;
+}
+.card-inner::after {
+  content:''; position:absolute; bottom:-50px; left:-50px;
+  width:140px; height:140px; border-radius:50%;
+  background:#FAEEDA; opacity:0.45;
+}
+.c-ornament { color:#F4C0D1; font-size:20px; opacity:0.6; }
+.card-corners {
+  position:absolute; top:14px; left:0; right:0;
+  display:flex; justify-content:space-between; padding:0 18px;
+  pointer-events:none;
+}
+.top-eyebrow {
+  font-size:11px; letter-spacing:3.5px; text-transform:uppercase;
+  color:#993556; font-weight:600; margin-bottom:6px;
+}
+.name-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 40px; font-weight:400; color:#D4537E;
+  line-height:1.1; margin-bottom:4px;
+}
+.anniv-sub {
+  font-family: Georgia, serif;
+  font-size:16px; color:#993556; letter-spacing:1px; margin-bottom:22px;
+}
+.heart-row {
+  font-size:40px; margin-bottom:16px;
+  animation: hb 2.2s ease-in-out infinite; display:block;
+}
+@keyframes hb {
+  0%,100%{transform:scale(1)} 15%{transform:scale(1.3)}
+  30%{transform:scale(1)} 45%{transform:scale(1.15)} 60%{transform:scale(1)}
+}
+.divider { display:flex; align-items:center; gap:10px; margin:0 auto 22px; max-width:300px; }
+.div-line { flex:1; height:0.5px; background:#F4C0D1; }
+.div-gem { color:#D4537E; font-size:14px; }
+
+.msg-box {
+  background:#fff5f0; border:0.5px solid #F5C4B3;
+  border-radius:16px; padding:22px 20px 18px;
+  text-align:left; margin-bottom:22px; position:relative; z-index:1;
+}
+.msg-box p {
+  font-family: Georgia, serif;
+  font-size:15px; line-height:1.9; color:#4A1B0C; margin-bottom:10px;
+}
+.msg-box p:last-child { margin-bottom:0; }
+.msg-box .sig {
+  font-size:14px; color:#993556; font-style:italic;
+  margin-top:14px; border-top:0.5px solid #F5C4B3; padding-top:12px;
+}
+
+.date-row { display:flex; justify-content:center; gap:4px; margin-bottom:18px; position:relative; z-index:1; }
+.d-block { text-align:center; padding:10px 16px; }
+.d-num { display:block; font-family:Georgia,serif; font-size:28px; color:#D4537E; line-height:1; }
+.d-lbl { display:block; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#B4B2A9; margin-top:3px; }
+.d-sep { color:#F5C4B3; font-size:22px; align-self:center; }
+.card-foot { font-size:12px; color:#B4B2A9; letter-spacing:0.5px; position:relative; z-index:1; }
+.card-foot strong { color:#993556; font-weight:600; }
+
+.confetti-piece {
+  position:absolute; pointer-events:none;
+  animation:cfall linear forwards; z-index:20;
+}
+@keyframes cfall {
+  0%{opacity:1;transform:translateY(0) rotate(0deg) scale(1)}
+  85%{opacity:1}
+  100%{opacity:0;transform:translateY(500px) rotate(800deg) scale(0.3)}
+}
+</style>
+</head>
+<body>
+
+<div id="scene">
+
+  <div id="gift-stage" onclick="openGift()" role="button" tabindex="0" aria-label="Tap to open Fahimah's anniversary card">
+    <div class="gift-hover-wrap">
+      <svg id="gift-svg" width="240" height="330" viewBox="0 0 240 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="white" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="black" stop-opacity="0.08"/>
+          </linearGradient>
+          <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="white" stop-opacity="0.15"/>
+            <stop offset="40%" stop-color="white" stop-opacity="0"/>
+            <stop offset="100%" stop-color="black" stop-opacity="0.07"/>
+          </linearGradient>
+        </defs>
+
+        <g id="bow-g">
+          <path d="M112 148 C100 162, 72 178, 52 196 C42 205, 36 214, 40 220 C43 225, 50 222, 58 215 C70 204, 90 188, 108 168 Z" fill="#D4537E" opacity="0.9"/>
+          <path d="M112 148 C100 162, 72 178, 52 196 C42 205, 36 214, 40 220 C43 225, 50 222, 58 215 C70 204, 90 188, 108 168 Z" fill="none" stroke="#A02060" stroke-width="0.8"/>
+          <path d="M110 152 C100 164, 78 180, 60 198 C52 206, 46 213, 49 218" fill="none" stroke="#ED93B1" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+
+          <path d="M128 148 C140 162, 168 178, 188 196 C198 205, 204 214, 200 220 C197 225, 190 222, 182 215 C170 204, 150 188, 132 168 Z" fill="#D4537E" opacity="0.9"/>
+          <path d="M128 148 C140 162, 168 178, 188 196 C198 205, 204 214, 200 220 C197 225, 190 222, 182 215 C170 204, 150 188, 132 168 Z" fill="none" stroke="#A02060" stroke-width="0.8"/>
+          <path d="M130 152 C140 164, 162 180, 180 198 C188 206, 194 213, 191 218" fill="none" stroke="#ED93B1" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+
+          <path d="M118 142 C108 128, 88 100, 64 82 C48 70, 30 68, 22 78 C14 88, 22 108, 40 120 C58 132, 90 138, 114 146 Z" fill="#E8609A"/>
+          <path d="M118 142 C108 128, 88 100, 64 82 C48 70, 30 68, 22 78 C14 88, 22 108, 40 120 C58 132, 90 138, 114 146 Z" fill="none" stroke="#B03070" stroke-width="1"/>
+          <path d="M116 144 C106 130, 86 104, 66 88 C52 76, 38 74, 30 82" fill="none" stroke="#ED93B1" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
+          <path d="M60 90 C50 96, 34 106, 30 116" fill="none" stroke="#ED93B1" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+
+          <path d="M122 142 C132 128, 152 100, 176 82 C192 70, 210 68, 218 78 C226 88, 218 108, 200 120 C182 132, 150 138, 126 146 Z" fill="#E8609A"/>
+          <path d="M122 142 C132 128, 152 100, 176 82 C192 70, 210 68, 218 78 C226 88, 218 108, 200 120 C182 132, 150 138, 126 146 Z" fill="none" stroke="#B03070" stroke-width="1"/>
+          <path d="M124 144 C134 130, 154 104, 174 88 C188 76, 202 74, 210 82" fill="none" stroke="#ED93B1" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
+          <path d="M180 90 C190 96, 206 106, 210 116" fill="none" stroke="#ED93B1" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+
+          <ellipse cx="120" cy="144" rx="14" ry="10" fill="#C02868"/>
+          <ellipse cx="120" cy="144" rx="14" ry="10" fill="none" stroke="#901848" stroke-width="0.8"/>
+          <ellipse cx="118" cy="142" rx="6" ry="4" fill="#D4537E" opacity="0.6"/>
+        </g>
+
+        <g id="lid-g">
+          <rect x="4" y="150" width="232" height="55" rx="9" fill="#C9315F"/>
+          <rect x="4" y="150" width="232" height="55" rx="9" stroke="#A02050" stroke-width="1.2"/>
+          <rect x="106" y="150" width="28" height="55" fill="#FAC775" opacity="0.82"/>
+          <rect x="4" y="167" width="232" height="18" fill="#FAC775" opacity="0.82"/>
+          <rect x="4" y="150" width="232" height="55" rx="9" fill="url(#lg1)"/>
+        </g>
+
+        <rect x="4" y="204" width="232" height="118" fill="#E24B4A"/>
+        <path d="M4 204 L236 204 L236 316 Q236 322 230 322 L10 322 Q4 322 4 316 Z" fill="#E24B4A"/>
+        <path d="M4 204 L236 204 L236 316 Q236 322 230 322 L10 322 Q4 322 4 316 Z" fill="none" stroke="#C03030" stroke-width="1.2"/>
+        <path d="M4 308 Q4 322 10 322 L230 322 Q236 322 236 308 Z" fill="#B82828"/>
+        <rect x="106" y="204" width="28" height="118" fill="#FAC775" opacity="0.82"/>
+        <rect x="4" y="246" width="232" height="28" fill="#FAC775" opacity="0.82"/>
+        <path d="M4 204 L236 204 L236 316 Q236 322 230 322 L10 322 Q4 322 4 316 Z" fill="url(#lg2)"/>
+      </svg>
+    </div>
+    <p class="tap-hint">Tap to open ✨</p>
+  </div>
+
+  <div id="card-reveal">
+    <div class="card-outer">
+      <div class="card-inner">
+        <div class="card-corners">
+          <span class="c-ornament">❧</span>
+          <span class="c-ornament">❧</span>
+        </div>
+        <p class="top-eyebrow">Our 3rd Anniversary</p>
+        <h1 class="name-title">Fahimah</h1>
+        <p class="anniv-sub">Happy Anniversary, Lovey 🌹</p>
+        <span class="heart-row" aria-hidden="true">🤍</span>
+        <div class="divider" aria-hidden="true">
+          <div class="div-line"></div>
+          <span class="div-gem">✦</span>
+          <div class="div-line"></div>
+        </div>
+        <div class="msg-box">
+          <p>This is for you — thank you for 3 amazing years. You have been absolutely amazing, and truly the best thing I could have ever asked for.</p>
+          <p>I love your company and appreciate you more than words can say. Having you by my side every single day is truly a blessing.</p>
+          <p>Here's to many more years filled with good health and barakah. May Allah continue to bless our marriage with lots of love, care, happiness and barakah. Ameen. 🤲</p>
+          <div class="sig">
+            With lots of love,<br>
+            <strong style="color:#4A1B0C; font-style:normal;">Your Husband Ahmad</strong>
+          </div>
+        </div>
+        <div class="date-row">
+          <div class="d-block"><span class="d-num">23</span><span class="d-lbl">May</span></div>
+          <span class="d-sep">·</span>
+          <div class="d-block"><span class="d-num">3</span><span class="d-lbl">Years</span></div>
+          <span class="d-sep">·</span>
+          <div class="d-block"><span class="d-num">∞</span><span class="d-lbl">Always</span></div>
+        </div>
+        <p class="card-foot">23rd May 2025 &nbsp;·&nbsp; <strong>Always & forever</strong></p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var opened = false;
+function openGift() {
+  if (opened) return;
+  opened = true;
+  var bowG = document.getElementById('bow-g');
+  var lidG = document.getElementById('lid-g');
+  var stage = document.getElementById('gift-stage');
+  var card = document.getElementById('card-reveal');
+  var scene = document.getElementById('scene');
+
+  bowG.style.transition = 'transform 0.52s cubic-bezier(0.34,1.2,0.64,1), opacity 0.38s ease';
+  bowG.style.transformBox = 'fill-box';
+  bowG.style.transformOrigin = 'center center';
+  bowG.style.transform = 'translateY(-180px) scale(0.25) rotate(-18deg)';
+  bowG.style.opacity = '0';
+
+  setTimeout(function(){
+    lidG.style.transition = 'transform 0.58s cubic-bezier(0.34,1.1,0.64,1), opacity 0.42s ease';
+    lidG.style.transformBox = 'fill-box';
+    lidG.style.transformOrigin = 'center bottom';
+    lidG.style.transform = 'translateY(-190px) rotate(-7deg) scale(1.04)';
+    lidG.style.opacity = '0';
+  }, 90);
+
+  burst(scene, 65);
+
+  setTimeout(function(){
+    stage.style.display = 'none';
+    card.style.display = 'block';
+    burst(scene, 90);
+    setTimeout(function(){ burst(scene, 50); }, 360);
+  }, 700);
+}
+
+document.getElementById('gift-stage').addEventListener('keydown', function(e){
+  if (e.key==='Enter'||e.key===' ') openGift();
+});
+
+function burst(parent, count) {
+  var colors = ['#D4537E','#FAC775','#E24B4A','#7F77DD','#5DCAA5','#F0997B','#378ADD','#ED93B1','#EF9F27','#9FE1CB','#F4C0D1'];
+  for (var i=0;i<count;i++){
+    (function(d){
+      setTimeout(function(){
+        var el=document.createElement('div');
+        el.className='confetti-piece';
+        var r=Math.random();
+        var w=Math.round(6+Math.random()*9);
+        var h=r>0.65?w:(r>0.35?Math.round(w*0.35):w);
+        el.style.width=w+'px'; el.style.height=h+'px';
+        el.style.borderRadius=r>0.65?'50%':'2px';
+        el.style.background=colors[Math.floor(Math.random()*colors.length)];
+        el.style.left=Math.round(4+Math.random()*88)+'%';
+        el.style.top=Math.round(4+Math.random()*28)+'%';
+        var dur=Math.round(1000+Math.random()*1600);
+        el.style.animationDuration=dur+'ms';
+        parent.appendChild(el);
+        setTimeout(function(){if(el.parentNode)el.parentNode.removeChild(el);},dur+120);
+      },d);
+    })(i*20);
+  }
+}
+</script>
+</body>
+</html>
